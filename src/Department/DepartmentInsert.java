@@ -1,17 +1,20 @@
 package Department;
 
-import db.DateBase;
-
+import db.DataBase;
+import java.util.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-public class Insert {
+public class DepartmentInsert {
      public static void main(String[] args) throws  Exception {
+          Scanner sc = new Scanner(System.in);
           String sql = "insert into department (department_name) values (?)";
 
-          Connection con = DateBase.getConnection();
+          Connection con = DataBase.getConnection();
           PreparedStatement ps = con.prepareStatement(sql);
-          ps.setString(1,"Cardiology");
+          System.out.print("Enter Department Name: ");
+          String Department = sc.nextLine();
+         ps.setString(1,Department);
           ps.executeUpdate();
           ps.close();
           con.close();

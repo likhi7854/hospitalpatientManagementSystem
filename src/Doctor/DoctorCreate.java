@@ -1,14 +1,14 @@
 package Doctor;
 
-import db.DateBase;
+import db.DataBase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-public class Create {
+public class DoctorCreate {
     public static void main(String[] args) throws Exception {
         String sql = """
-                        create table Doctor(
+                        create table if not exists Doctor(
                              Doctor_id int AUTO_INCREMENT primary key,
                              Doctor_name varchar(100) NOT NULL,
                              Gender varchar(20) Not Null,
@@ -22,7 +22,7 @@ public class Create {
           
                         )
                    """;
-        Connection con = DateBase.getConnection();
+        Connection con = DataBase.getConnection();
         PreparedStatement ps = con.prepareStatement(sql);
         ps.executeUpdate();
         con.close();

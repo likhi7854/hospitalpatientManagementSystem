@@ -1,5 +1,5 @@
 
-import db.DateBase;
+import db.DataBase;
 import java.sql.Connection;
 
 public class Main {
@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            Connection con = DateBase.getConnection();
+            Connection con = DataBase.getConnection();
 
             System.out.println("Database connected successfully!");
 

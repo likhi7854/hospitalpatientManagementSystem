@@ -1,17 +1,16 @@
 package Department;
 
-import db.DateBase;
+import db.DataBase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
-public class View {
+public class DepartmentView {
       public static void main(String[] args) {
            String sql = "Select * from department";
            try {
-               Connection con = DateBase.getConnection();
+               Connection con = DataBase.getConnection();
                PreparedStatement ps = con.prepareStatement(sql);
                ResultSet rs = ps.executeQuery();
                while (rs.next()){
